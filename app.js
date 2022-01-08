@@ -10,7 +10,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));  // middle-ware
 
 app.get('/', function (req, res) {
   res.render('index');
@@ -71,5 +71,10 @@ app.get('/confirm', function (req, res) {
 app.get('/about', function (req, res) {
   res.render('about');
 });
+
+app.use(function (req, res) {
+  res.render('404');
+});  // handle all 404 pages 
+
 
 app.listen(3000);
