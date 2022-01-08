@@ -76,5 +76,9 @@ app.use(function (req, res) {
   res.render('404');
 });  // handle all 404 pages 
 
+app.use(function (error, req, res, next) {
+  res.render('500');
+});
+
 
 app.listen(3000);
