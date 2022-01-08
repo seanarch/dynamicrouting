@@ -41,7 +41,7 @@ app.get('/restaurants/:id', function (req, res) {
     }
   }
 
-  res.render('404');
+  res.status(404).render('404');
 
 });
 
@@ -73,12 +73,12 @@ app.get('/about', function (req, res) {
 });
 
 app.use(function (req, res) {
-  res.render('404');
+  res.status(404).render('404');
 });  // handle all 404 pages 
 
 app.use(function (error, req, res, next) {
-  res.render('500');
-});
+  res.status(500).render('500');
+}); // error handling requires 4 params 
 
 
 app.listen(3000);
